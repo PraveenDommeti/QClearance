@@ -1,0 +1,163 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 220 20% 8%;
+    --foreground: 210 20% 95%;
+
+    --card: 220 20% 12%;
+    --card-foreground: 210 20% 95%;
+
+    --popover: 220 20% 10%;
+    --popover-foreground: 210 20% 95%;
+
+    --primary: 72 100% 50%;
+    --primary-foreground: 220 20% 8%;
+
+    --secondary: 220 15% 20%;
+    --secondary-foreground: 210 20% 95%;
+
+    --muted: 220 15% 18%;
+    --muted-foreground: 215 15% 55%;
+
+    --accent: 72 100% 50%;
+    --accent-foreground: 220 20% 8%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 20% 98%;
+
+    --success: 142 76% 45%;
+    --success-foreground: 220 20% 8%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 220 20% 8%;
+
+    --arrival: 190 100% 50%;
+    --departure: 72 100% 50%;
+    
+    --taxiway: 38 92% 50%;
+
+    --border: 220 15% 20%;
+    --input: 220 15% 18%;
+    --ring: 72 100% 50%;
+
+    --radius: 0.75rem;
+
+    --glass: 220 20% 14% / 0.8;
+    --glass-border: 220 15% 25% / 0.5;
+
+    --sidebar-background: 220 20% 10%;
+    --sidebar-foreground: 210 20% 95%;
+    --sidebar-primary: 72 100% 50%;
+    --sidebar-primary-foreground: 220 20% 8%;
+    --sidebar-accent: 220 15% 18%;
+    --sidebar-accent-foreground: 210 20% 95%;
+    --sidebar-border: 220 15% 20%;
+    --sidebar-ring: 72 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-card/80 backdrop-blur-xl border border-white/10 rounded-xl;
+    box-shadow: 
+      0 4px 30px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+  .glass-panel-dark {
+    @apply bg-background/90 backdrop-blur-xl border border-white/5 rounded-xl;
+  }
+
+  .radar-glow {
+    box-shadow: 
+      0 0 60px rgba(204, 255, 0, 0.15),
+      0 0 120px rgba(204, 255, 0, 0.05);
+  }
+
+  .status-safe {
+    @apply bg-success/20 text-success border-success/30;
+  }
+
+  .status-warning {
+    @apply bg-warning/20 text-warning border-warning/30;
+  }
+
+  .status-danger {
+    @apply bg-destructive/20 text-destructive border-destructive/30;
+  }
+
+  .nav-tab {
+    @apply px-6 py-2.5 text-sm font-medium text-muted-foreground 
+           transition-all duration-300 rounded-lg
+           hover:text-foreground hover:bg-secondary/50;
+  }
+
+  .nav-tab-active {
+    @apply bg-primary text-primary-foreground shadow-lg;
+    box-shadow: 0 0 20px rgba(204, 255, 0, 0.3);
+  }
+
+  .data-row {
+    @apply flex items-center justify-between py-2.5 px-3 
+           border-b border-white/5 last:border-0
+           hover:bg-white/5 transition-colors cursor-pointer;
+  }
+
+  .pulse-dot {
+    @apply relative;
+  }
+
+  .pulse-dot::after {
+    content: '';
+    @apply absolute inset-0 rounded-full animate-ping;
+    background: inherit;
+    opacity: 0.5;
+  }
+
+  .scan-line {
+    animation: scan 4s linear infinite;
+  }
+
+  @keyframes scan {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .agent-progress {
+    @apply h-1 bg-secondary rounded-full overflow-hidden;
+  }
+
+  .agent-progress-bar {
+    @apply h-full bg-primary transition-all duration-500 ease-out;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-emerald-400 bg-clip-text text-transparent;
+  }
+
+  .border-glow {
+    box-shadow: 0 0 15px rgba(204, 255, 0, 0.2);
+  }
+}

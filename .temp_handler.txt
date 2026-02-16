@@ -1,0 +1,17 @@
+  const handleApproveClearance = (flight: Flight) => {
+    // Check if runway is in use
+    if (isRunwayInUse()) {
+      toast.error("🚨 RUNWAY CONFLICT DETECTED!", {
+        description: `Runway ${flight.runway} is currently in use. Cannot approve clearance for ${flight.callsign}.`,
+        duration: 5000,
+        className: "bg-destructive text-destructive-foreground border-destructive",
+      });
+      return;
+    }
+    
+    approveFlightClearance(flight);
+    toast.success(`✓ Clearance Approved`, {
+      description: `${flight.callsign} cleared for ${flight.type}.`,
+      duration: 3000,
+    });
+  };
