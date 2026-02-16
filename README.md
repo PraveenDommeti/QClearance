@@ -9,7 +9,8 @@
 
 **Sky Guardian - QClearance** is a cutting-edge decision integrity system for airport runway and taxiway operations. It leverages **multi-agent AI reasoning** and **quantum-inspired optimization** to ensure safe, efficient, and fair runway slot allocation in real-time.
 
-🎥 **[Watch Demo Video](#)** | 📚 **[Documentation](./QUICK_START.md)** | 🚀 **[Live Demo](#)**
+🎥 Watch Demo Video : https://youtu.be/edWuDklZWTY
+Live Demo : https://qclearance.netlify.app/
 
 ---
 
